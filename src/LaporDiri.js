@@ -34,7 +34,7 @@ var LaporDiri = React.createClass({
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          {this.props.route.title}
+          {this.props.route.name}
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.ios.js
@@ -45,7 +45,7 @@ var LaporDiri = React.createClass({
         </Text>
         <TouchableHighlight onPress={this._onNext}>
           <View>
-            <Text>Nexk</Text>
+            <Text>Next</Text>
           </View>
         </TouchableHighlight>
         {backButton}
