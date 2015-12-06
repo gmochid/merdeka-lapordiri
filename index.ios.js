@@ -2,7 +2,7 @@
 
 import React from 'react-native';
 import Home from './src/Home';
-import Login from './src/Login';
+import Confirmation from './src/Confirmation';
 
 var {
   AppRegistry,
@@ -13,7 +13,7 @@ class LaporDiri extends React.Component {
   render() {
     return (
       <Navigator
-        initialRoute={{name: 'My First Scene', index: 0}}
+        initialRoute={{name: 'Lapor Diri', index: 0}}
         configureScene={() => {
           return Navigator.SceneConfigs.FloatFromRight;
         }}
@@ -21,7 +21,7 @@ class LaporDiri extends React.Component {
           if (route.index == 0) {
             return <Home navigator={navigator} route={route}/>;
           } else {
-            return <Login navigator={navigator} route={route}/>;
+            return <Confirmation navigator={navigator} route={route}/>;
           }
         }}
       />

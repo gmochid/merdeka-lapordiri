@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react-native';
-import Login from './Login';
 import styles from './Styles';
 
 var {
@@ -9,47 +8,58 @@ var {
   Text,
   View,
   TouchableHighlight,
+  TextInput,
 } = React;
 
 var Home = React.createClass({
-  _onNext: function() {
+  getInitialState: function() {
+    return {
+      name: '',
+      passportNumber: '',
+      address: '',
+    };
+  },
+  _onSubmit: function() {
     this.props.navigator.push({
       name: 'FeedView',
       index: this.props.route.index + 1
     });
   },
-  _onBack: function() {
-    this.props.navigator.pop();
-  },
   render: function() {
-    var backButton = null;
-    if (this.props.route.index > 0) {
-      backButton =
-        <TouchableHighlight onPress={this._onBack}>
-          <View>
-            <Text>Back</Text>
-          </View>
-        </TouchableHighlight>
-    }
-
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
+        <Text style={styles.title}>
           {this.props.route.name}
         </Text>
-        <Text style={styles.instructions}>
-          Index number {this.props.route.index}
+        <Text>
+          Nama
         </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+        <TextInput
+          style={styles.inputText}
+          onChangeText={(text) => this.setState({name:text})}
+          value={this.state.name}
+          />
+        <Text>
+          Nomor Passport
         </Text>
-        <TouchableHighlight onPress={this._onNext}>
-          <View>
-            <Text>Next</Text>
+        <TextInput
+          style={styles.inputText}
+          onChangeText={(text) => this.setState({passportNumber:text})}
+          value={this.state.passportNumber}
+          />
+        <Text>
+          Tempat Tinggal
+        </Text>
+        <TextInput
+          style={styles.inputText}
+          onChangeText={(text) => this.setState({address:text})}
+          value={this.state.address}
+          />
+        <TouchableHighlight onPress={this._onSubmit}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Submit</Text>
           </View>
         </TouchableHighlight>
-        {backButton}
       </View>
     );
   }

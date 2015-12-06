@@ -9,9 +9,24 @@ var {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    marginTop: 30,
+  },
+  title: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: 24,
+  },
+  button: {
+    backgroundColor: '#FF0000',
+  },
+  buttonText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  inputText: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1
   },
   welcome: {
     fontSize: 20,
