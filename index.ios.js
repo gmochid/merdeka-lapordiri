@@ -1,14 +1,15 @@
 'use strict';
 
 import React from 'react-native';
-import LaporDiri from './src/LaporDiri';
+import Home from './src/Home';
+import Login from './src/Login';
 
 var {
   AppRegistry,
   Navigator
 } = React;
 
-class app extends React.Component {
+class LaporDiri extends React.Component {
   render() {
     return (
       <Navigator
@@ -17,11 +18,15 @@ class app extends React.Component {
           return Navigator.SceneConfigs.FloatFromRight;
         }}
         renderScene={(route, navigator) => {
-          return <LaporDiri navigator={navigator} route={route}/>;
+          if (route.index == 0) {
+            return <Home navigator={navigator} route={route}/>;
+          } else {
+            return <Login navigator={navigator} route={route}/>;
+          }
         }}
       />
     );
   }
 }
 
-AppRegistry.registerComponent('LaporDiri', () => app);
+AppRegistry.registerComponent('LaporDiri', () => LaporDiri);

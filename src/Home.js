@@ -1,20 +1,21 @@
 'use strict';
 
-var React = require('react-native');
+import React from 'react-native';
+import Login from './Login';
+import styles from './Styles';
+
 var {
   AppRegistry,
-  StyleSheet,
   Text,
   View,
   TouchableHighlight,
 } = React;
 
-var LaporDiri = React.createClass({
+var Home = React.createClass({
   _onNext: function() {
     this.props.navigator.push({
       name: 'FeedView',
-      component: LaporDiri,
-      index: 1
+      index: this.props.route.index + 1
     });
   },
   _onBack: function() {
@@ -37,7 +38,7 @@ var LaporDiri = React.createClass({
           {this.props.route.name}
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          Index number {this.props.route.index}
         </Text>
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}
@@ -54,23 +55,4 @@ var LaporDiri = React.createClass({
   }
 });
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-export default LaporDiri;
+export default Home;
